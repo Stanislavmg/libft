@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 20:37:48 by sgoremyk          #+#    #+#             */
-/*   Updated: 2023/11/29 16:29:31 by sgoremyk         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include <stdlib.h>
 
 int	ft_atoi(char *str)
 {
@@ -18,23 +8,21 @@ int	ft_atoi(char *str)
 
 	i = 0;
 	res = 0;
-	sign = 0;
+	sign = 1;
 	while ((str[i] >= '\t' && str[i] <= '\r') || str[i] == ' ')
 		i++;
-	while (str[i] == '-' || str[i] == '+')
+	if (str[i] == '-') 
 	{
-		if (str[i] == '-')
-			sign++;
+		sign = -1;
 		i++;
 	}
+	else if (str[i] == '+') 
+		i++;
 	while (str[i] >= '0' && str[i] <= '9')
 	{
+		res *= 10;
 		res += str[i] - '0';
-		if (str[i + 1] >= '0' && str[i + 1] <= '9')
-			res *= 10;
 		i++;
 	}
-	if (sign % 2 != 0)
-		res *= -1;
-	return (res);
+	return (res * sign);
 }
