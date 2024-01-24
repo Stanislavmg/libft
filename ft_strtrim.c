@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdio.h>
 
 static char	isset(char ch, char const *set)
 {
@@ -22,7 +21,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	unsigned int	end;
 
 	start = 0;
-	end = ft_strlen(s1);
+	end = ft_strlen(s1) - 1;
 	while	(isset(s1[start], set))
 		start++;
 	while (isset(s1[end], set))
@@ -30,15 +29,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	res = malloc(end - start + 2);
 	if (!res)
 		return (NULL);
-	ft_strlcpy(res, s1 + start, end - start + 1);
+	ft_strlcpy(res, s1 + start, end - start + 2);
 	return (res);
-}
-
-int	main(void)
-{
-	char	*s = "11000011";
-	char	*set = "1";
-
-	printf("%s,\n",ft_strtrim(s, set));
-	return (0);
 }
