@@ -1,15 +1,5 @@
 #include "libft.h"
 
-static size_t	f_strlen(char const *str)
-{
-	unsigned long	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char			*res;
@@ -21,8 +11,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	res = NULL;
 	i = 0;
 	j = 0;
-	len += f_strlen(s1);
-	len += f_strlen(s2);
+	len += ft_strlen(s1);
+	len += ft_strlen(s2);
 	res = malloc(len);
 	if (!res)
 		return (res);
