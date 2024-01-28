@@ -44,4 +44,5 @@ void	ft_putnbr_fd(int n, int fd);
 /**************************************************************/
 
 t_list	*ft_listnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 #endif
