@@ -1,35 +1,46 @@
 #include "libft.h"
 #include <stdio.h>
 
-char	*ft_itoa(int n)
+static void	putnbr(int pos, int n, char *str)
 {
-	unsigned 		i;
-	unsigned 		num;
-	char			buf[12];
-	char			*res;
+	unsigned int	num;
 
-	i = 12;
-	num = n;
-	while (num)
-	{
-		i--;
-		buf[i] = '0' + num % 10;
-		num /= 10;
-	}
 	if (n < 0)
+		num = n * -1;
+	else
+		num = n;
+	if (n / 10 == 0)
 	{
-		i--;
-		buf[i] = '-';
+		str[pos] = '0' + num % 10;
+		if (n < 0)
+			str[pos - 1] = '-';
+		return ;
 	}
-	res = malloc(12 - i + 1);
-	if (!res)
-		return (NULL);
-	ft_strlcpy(res, buf + i, 12 - i + 1);
-	return (res);
+	putnbr(pos - 1, n / 10, str);
+	str[pos] = '0' + num % 10;
 }
 
-int	main(void)
+char	*ft_itoa(int n)
 {
-	puts(ft_itoa(-123));
-	return (0);
+	unsigned 		len;
+	int				num;
+	char			*res;
+
+	len = 1;
+	num = n;
+	if (n < 0)
+		len++;
+	else if (n == 0)
+		len++;
+	while (num)
+	{
+		num /= 10;
+		len++;
+	}
+	res = malloc(len + 1);
+	if (!res)
+		return (NULL);
+	res[len] = 0;
+	putnbr(len - 2, n, res);
+	return (res);
 }
