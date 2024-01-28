@@ -9,5 +9,4 @@ void	ft_strteri(char *s, void (*f)(unsigned int, char*))
 		f(i, s + i);
 		i++;
 	}
-
 }

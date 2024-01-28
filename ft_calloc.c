@@ -4,7 +4,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void			*pt;
 	unsigned long	i;
-	
+
 	i = 0;
 	pt = malloc(size * nmemb);
 	if (!pt)

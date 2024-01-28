@@ -8,7 +8,7 @@ void	ft_putnbr_fd(int n, int fd)
 		num = n * -1;
 	else
 		num = n;
-	if (n / 10 == 0)	
+	if (n / 10 == 0)
 	{
 		if (n < 0)
 			ft_putchar_fd('-', fd);

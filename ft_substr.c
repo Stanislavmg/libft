@@ -10,7 +10,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!s || (start + len > ft_strlen(s)))
 		return (d);
 	d = malloc(len + 1);
-	if (!d)	
+	if (!d)
 		return (d);
 	while (i < len)
 		d[i++] = s[start++];

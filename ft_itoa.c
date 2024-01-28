@@ -22,7 +22,7 @@ static void	putnbr(int pos, int n, char *str)
 
 char	*ft_itoa(int n)
 {
-	unsigned 		len;
+	unsigned int	len;
 	int				num;
 	char			*res;
 

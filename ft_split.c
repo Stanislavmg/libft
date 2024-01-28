@@ -1,18 +1,17 @@
 #include "libft.h"
 
 static size_t	count_str(char const *s, char c)
-{	
+{
 	unsigned int	i;
 	unsigned int	count;
 
-	
 	i = 0;
 	count = 0;
 	while (s[i])
 	{
 		while (s[i + 1] != c && s[i + 1])
 			i++;
-		if(s[i] != c)
+		if (s[i] != c)
 			count++;
 		i++;
 	}
@@ -25,7 +24,7 @@ char	**ft_split(char const *s, char c)
 	unsigned int	j;
 	unsigned int	k;
 	unsigned int	count;
-	char		**res;
+	char			**res;
 
 	i = 0;
 	k = 0;

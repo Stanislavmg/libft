@@ -6,11 +6,11 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	i = 0;
 	if (!little)
-		return ((char*)big);
+		return ((char *)big);
 	while (big[i])
 	{
 		if (big[i] == *little && !(ft_strncmp(big + i, little, len)))
-			return ((char*)(big + i));
+			return ((char *)(big + i));
 		i++;
 	}
 	return (NULL);
