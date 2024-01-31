@@ -17,7 +17,7 @@ SRCS_B	=	ft_lstadd_front.c	ft_lstnew.c			ft_lstclear.c\
 			ft_lstlast.c		ft_lstdelone.c		ft_lstmap.c
 
 HEADER	=	libft.h
-OBJ		=	$(patsubst %.c, %.o, $(LIST))
+OBJ		=	$(SRCS:%.c=%.o)
 OBJ_B	=	$(SRCS_B:%.c=%.o)
 
 CC		=	gcc

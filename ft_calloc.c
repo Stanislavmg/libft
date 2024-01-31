@@ -3,16 +3,12 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void			*pt;
-	unsigned long	i;
+	size_t	i;
 
 	i = 0;
 	pt = malloc(size * nmemb);
 	if (!pt)
 		return (NULL);
-	while (i < size * nmemb)
-	{
-		((unsigned char *)pt)[i] = 0;
-		i++;
-	}
+	ft_memset(pt, 0, i);
 	return (pt);
 }
