@@ -2,8 +2,8 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char			*d;
-	unsigned long	i;
+	char	*d;
+	size_t	i;
 
 	d = NULL;
 	i = 0;
