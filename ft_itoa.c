@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdio.h>
 
 static void	putnbr(int pos, int n, char *str)
 {
@@ -22,7 +21,7 @@ static void	putnbr(int pos, int n, char *str)
 
 char	*ft_itoa(int n)
 {
-	unsigned int	len;
+	size_t	len;
 	int				num;
 	char			*res;
 
@@ -37,10 +36,10 @@ char	*ft_itoa(int n)
 		num /= 10;
 		len++;
 	}
-	res = malloc(len + 1);
+	res = malloc(len);
 	if (!res)
 		return (NULL);
-	res[len] = 0;
+	res[len - 1] = 0;
 	putnbr(len - 2, n, res);
 	return (res);
 }
