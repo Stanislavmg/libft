@@ -2,7 +2,7 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void			*pt;
+	void	*pt;
 
 	pt = malloc(size * nmemb);
 	if (!pt)

@@ -2,17 +2,15 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char			*res;
-	unsigned int	len;
-	unsigned int	i;
-	unsigned int	j;
+	char	*res;
+	size_t	len;
+	size_t	i;
+	size_t	j;
 
-	len = 1;
 	res = NULL;
 	i = 0;
 	j = 0;
-	len += ft_strlen(s1);
-	len += ft_strlen(s2);
+	len = ft_strlen(s1) + ft_strlen(s2) + 1;
 	res = malloc(len);
 	if (!res)
 		return (res);

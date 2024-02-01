@@ -1,6 +1,11 @@
 #include "libft.h"
-#include <stdio.h>
 
+static char	const *skip_ch(char const *s, char c)
+{
+	while (*s == c)
+		s++;
+	return (s);
+}
 static size_t	count_str(char const *s, char c)
 {
 	size_t	count;
@@ -42,21 +47,17 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	while (*s)
 	{
-		while (*s == c)
-			s++;
+		s = skip_ch(s, c);
 		j = 0;
 		while (s[j] != c && s[j])
 			j++;
-		res[i] = malloc(j + 1);
-		if (!res[i])
+		if (!(res[i] = malloc(j + 1)))
 		{
 			free_res(res, i);
 			return (NULL);
 		}
 		ft_strlcpy(res[i], s, j + 1);
-		s += j;
-		while (*s == c)
-			s++;
+		s = skip_ch(s + j, c);
 		i++;
 	}
 	res[i] = NULL;
