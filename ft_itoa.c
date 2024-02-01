@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/01 16:49:24 by sgoremyk          #+#    #+#             */
+/*   Updated: 2024/02/01 16:49:26 by sgoremyk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 static void	putnbr(int pos, int n, char *str)
@@ -22,8 +34,8 @@ static void	putnbr(int pos, int n, char *str)
 char	*ft_itoa(int n)
 {
 	size_t	len;
-	int				num;
-	char			*res;
+	int		num;
+	char	*res;
 
 	len = 1;
 	num = n;

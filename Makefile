@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/02/01 17:05:52 by sgoremyk          #+#    #+#              #
+#    Updated: 2024/02/01 17:52:45 by sgoremyk         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME	=	libft.a
 
 SRCS	=	ft_isalpha.c	ft_strlcpy.c	ft_strtrim.c\
@@ -31,7 +43,7 @@ $(NAME)	:	$(OBJ) $(HEADER)
 	ar rcs $(NAME) $?
 
 %.o		:	%.c $(HEADER)
-	$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
 
 bonus	:
 	@make OBJ="$(OBJ_B)" all
