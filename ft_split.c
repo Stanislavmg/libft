@@ -1,52 +1,64 @@
 #include "libft.h"
+#include <stdio.h>
 
 static size_t	count_str(char const *s, char c)
 {
-	unsigned int	i;
-	unsigned int	count;
+	size_t	count;
 
-	i = 0;
 	count = 0;
-	while (s[i])
+	while (*s)
 	{
-		while (s[i + 1] != c && s[i + 1])
-			i++;
-		if (s[i] != c)
+		while (*(s + 1) != c && *(s + 1))
+			s++;
+		if (*s != c)
 			count++;
-		i++;
+		s++;
 	}
 	return (count);
 }
 
-char	**ft_split(char const *s, char c)
+static void	free_res(char **res, size_t count)
 {
-	unsigned int	i;
-	unsigned int	j;
-	unsigned int	k;
-	unsigned int	count;
-	char			**res;
+	size_t i;
 
 	i = 0;
-	k = 0;
-	count = count_str(s, c);
-	if (!count)
-		return (NULL);
-	else
-		res = malloc((count + 1) * sizeof(char*));
+	while (i < count)
+	{
+		free(res[i]);
+		i++;
+	}
+	free(res);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	size_t	i;
+	size_t	j;
+	char	**res;
+
+	i = 0;
+	res = malloc((count_str(s, c) + 1) * sizeof(char*));
 	if (!res)
 		return (NULL);
-	res[count] = NULL;
-	while (k <= count)
+	while (*s)
 	{
-		while (s[i] == c)
-			i++;
-		j = i;
+		while (*s == c)
+			s++;
+		j = 0;
 		while (s[j] != c && s[j])
 			j++;
-		res[k] = malloc(j - i + 1);
-		ft_strlcpy(res[k], s + i, j - i + 1);
-		i = j;
-		k++;
+		res[i] = malloc(j + 1);
+		if (!res[i])
+		{
+			free_res(res, i);
+			return (NULL);
+		}
+		ft_strlcpy(res[i], s, j + 1);
+		s += j;
+		while (*s == c)
+			s++;
+		i++;
 	}
+	res[i] = NULL;
 	return (res);
 }

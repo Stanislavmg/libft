@@ -1,6 +1,6 @@
 #include "libft.h"
 
-t_list	*ft_listnew(void *content)
+t_list	*ft_lstnew(void *content)
 {
 	t_list	*ps;
 
