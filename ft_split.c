@@ -19,60 +19,56 @@ static char	const	*skip_ch(char const *s, char c)
 	return (s);
 }
 
-static char	**count_str(char const *s, char c)
+static size_t	count_str(char const *s, char c)
 {
 	size_t	count;
-	char	**res;
 
-	res = NULL;
 	count = 0;
+	if (!*s)
+		count++;
 	while (*s)
 	{
-		while (*(s + 1) != c && *(s + 1))
+		while (*s == c)
 			s++;
-		if (*s != c)
+		if (*s)
 			count++;
-		s++;
+		while (*s && *s != c)
+			s++;
 	}
-	if (count)
-		res = malloc((count + 1) * sizeof(char *));
-	return (res);
+	return (count);
 }
 
-static void	free_res(char **res, size_t count)
+static char 	**free_res(char **res, size_t count)
 {
 	size_t	i;
 
 	i = 0;
 	while (i < count)
-	{
-		free(res[i]);
-		i++;
-	}
+		free(res[i++]);
 	free(res);
+	return(NULL);
 }
 
 char	**ft_split(char const *s, char c)
 {
+	size_t	count;
 	size_t	i;
 	size_t	j;
 	char	**res;
 
 	i = 0;
-	if (!(res = count_str(s, c)))
-		return (res);
-	while (*s)
+	count = count_str(s, c);
+	if (!(res = malloc((count + 1) * sizeof(char *))))
+		return (NULL);
+	while (i < count)
 	{
-		s = skip_ch(s, c);
 		j = 0;
+		s = skip_ch(s, c);
 		while (s[j] != c && s[j])
 			j++;
 		res[i] = malloc(j + 1);
 		if (!res[i])
-		{
-			free_res(res, i);
-			return (NULL);
-		}
+			return (free_res(res, i));
 		ft_strlcpy(res[i], s, j + 1);
 		s = skip_ch(s + j, c);
 		i++;

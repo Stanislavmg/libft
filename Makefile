@@ -24,9 +24,9 @@ SRCS	=	ft_isalpha.c	ft_strlcpy.c	ft_strtrim.c\
 			ft_strdup.c		ft_bzero.c		ft_substr.c\
 			ft_memcpy.c		ft_strjoin.c	ft_memset.c
 
-SRCS_B	=	ft_lstadd_front.c	ft_lstnew.c			ft_lstclear.c\
-			ft_lstsize.c		ft_lstadd_back.c	ft_lstiter.c\
-			ft_lstlast.c		ft_lstdelone.c		ft_lstmap.c
+SRCS_B	=	ft_lstclear.c	ft_lstnew.c		ft_lstadd_front.c\
+			ft_lstsize.c	ft_lstiter.c	ft_lstadd_back.c\
+			ft_lstlast.c	ft_lstmap.c		ft_lstdelone.c		
 
 HEADER	=	libft.h
 OBJ		=	$(SRCS:%.c=%.o)
@@ -52,6 +52,6 @@ clean	:
 	@rm -f $(OBJ) $(OBJ_B)
 
 fclean	:	clean
-	@$(RM) $(NAME)
+	@rm -f $(OBJ) $(OBJ_B) $(NAME)
 
 re		:	fclean all
