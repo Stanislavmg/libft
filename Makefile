@@ -22,7 +22,8 @@ SRCS	=	ft_isalpha.c	ft_strlcpy.c	ft_strtrim.c\
 			ft_atoi.c		ft_memcmp.c		ft_putnbr_fd.c\
 			ft_itoa.c		ft_calloc.c		ft_strchr.c\
 			ft_strdup.c		ft_bzero.c		ft_substr.c\
-			ft_memcpy.c		ft_strjoin.c	ft_memset.c
+			ft_memcpy.c		ft_strjoin.c	ft_memset.c\
+			ft_memmove.c	ft_strnstr.c
 
 SRCS_B	=	ft_lstclear.c	ft_lstnew.c		ft_lstadd_front.c\
 			ft_lstsize.c	ft_lstiter.c	ft_lstadd_back.c\
@@ -33,9 +34,9 @@ OBJ		=	$(SRCS:%.c=%.o)
 OBJ_B	=	$(SRCS_B:%.c=%.o)
 
 CC		=	gcc
-CFLAGS	=	-Wall -Wextra -Werror -I $(HEADER)
+CFLAGS	=	-Wall -Wextra -Werror
 
-.PHONY	:	all clean fclean re bonus
+.PHONY	:	all clean fclean re bonus so
 
 all		:	$(NAME)
 

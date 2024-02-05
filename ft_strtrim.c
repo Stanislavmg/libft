@@ -31,15 +31,22 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char			*res;
 	unsigned int	start;
 	unsigned int	end;
-
+	if (!s1 || !set)
+		return (NULL);
 	start = 0;
 	end = ft_strlen(s1) - 1;
 	while (isset(s1[start], set) && s1[start])
 		start++;
-	if (start > end)
-		return ("");
+
 	while (isset(s1[end], set) && end > 0)
 		end--;
+	if (start > end)
+	{
+		if (!(res = malloc(1)))
+			return (NULL);
+		*res = 0;
+		return (res);
+	}
 	res = malloc(end - start + 2);
 	if (!res)
 		return (NULL);
