@@ -28,9 +28,10 @@ static char	isset(char ch, char const *set)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char			*res;
-	unsigned int	start;
-	unsigned int	end;
+	char	*res;
+	int		start;
+	int		end;
+	int		num;
 
 	if (!s1 || !set)
 		return (NULL);
@@ -41,16 +42,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (isset(s1[end], set) && end > 0)
 		end--;
 	if (start > end)
-	{
-		res = malloc(1);
-		if (!res)
-			return (NULL);
-		*res = 0;
-		return (res);
-	}
-	res = malloc(end - start + 2);
+		num = 0;
+	else
+		num = end - start + 1;
+	res = malloc(num + 1);
 	if (!res)
 		return (NULL);
-	ft_strlcpy(res, s1 + start, end - start + 2);
+	ft_strlcpy(res, s1 + start, num + 1);
 	return (res);
 }

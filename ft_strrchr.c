@@ -16,10 +16,8 @@ char	*ft_strrchr(const char *s, int c)
 {
 	char	*ps;
 
-	if (!s)
-		return (NULL);
 	ps = NULL;
-	while (*s)
+	while (*s != 0)
 	{
 		if (*s == (unsigned char)c)
 			ps = (char *)s;
