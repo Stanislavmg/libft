@@ -6,7 +6,7 @@
 /*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:52:26 by sgoremyk          #+#    #+#             */
-/*   Updated: 2024/02/01 17:42:02 by sgoremyk         ###   ########.fr       */
+/*   Updated: 2024/02/16 13:18:23 by sgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*t;
 
-	if (!*lst)
+	if (!lst || !*lst || !del)
 		return ;
 	while (*lst)
 	{

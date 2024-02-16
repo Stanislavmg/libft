@@ -6,7 +6,7 @@
 /*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:55:19 by sgoremyk          #+#    #+#             */
-/*   Updated: 2024/02/01 16:55:20 by sgoremyk         ###   ########.fr       */
+/*   Updated: 2024/02/16 13:16:43 by sgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_putstr_fd(char *s, int fd)
 {
 	size_t	i;
 
+	if (!s)
+		return ;
 	i = ft_strlen(s);
 	write(fd, s, i);
 }

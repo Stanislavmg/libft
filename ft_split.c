@@ -6,7 +6,7 @@
 /*   By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 16:55:34 by sgoremyk          #+#    #+#             */
-/*   Updated: 2024/02/04 15:24:22 by sgoremyk         ###   ########.fr       */
+/*   Updated: 2024/02/16 14:47:39 by sgoremyk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,17 @@ static size_t	count_str(char const *s, char c)
 	return (count);
 }
 
+static char	**get_str(size_t *count, char const *s, char c)
+{
+	char	**res;
+
+	if (!s)
+		return (NULL);
+	*count = count_str(s, c);
+	res = malloc((*count + 1) * sizeof(char *));
+	return (res);
+}
+
 static char	**free_res(char **res, size_t count)
 {
 	size_t	i;
@@ -55,8 +66,7 @@ char	**ft_split(char const *s, char c)
 	char	**res;
 
 	i = 0;
-	count = count_str(s, c);
-	res = malloc((count + 1) * sizeof(char *));
+	res = get_str(&count, s, c);
 	if (!res)
 		return (NULL);
 	while (i < count)

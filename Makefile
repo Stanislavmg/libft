@@ -6,7 +6,7 @@
 #    By: sgoremyk <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 17:05:52 by sgoremyk          #+#    #+#              #
-#    Updated: 2024/02/09 15:29:36 by sgoremyk         ###   ########.fr        #
+#    Updated: 2024/02/16 14:52:59 by sgoremyk         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ OBJ_B	=	$(SRCS_B:%.c=%.o)
 CC		=	gcc
 CFLAGS	=	-Wall -Wextra -Werror
 
-.PHONY	:	all clean fclean re bonus so
+.PHONY	:	all clean fclean re bonus
 
 all		:	$(NAME)
 
