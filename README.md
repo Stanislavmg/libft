@@ -37,3 +37,9 @@ git clone [repository_url]
 ```bash
 cd libft && make && make bonus
 ```
+3. Include the header file and compile your project with `libft.a`:
+
+```c
+#include "/path/to/libft.h"
+gcc main.c libft.a -o your_program
+```
