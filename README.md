@@ -26,18 +26,18 @@ he Libft project is a fundamental exercise in building a strong foundation in C 
 
 ## Getting Started
 
-1. Clone the repository:
+1. **Clone the repository:**
 
 ```bash
-git clone [repository_url]
+git clone https://github.com/stanislavmg/libft.git
 ```
 
-1. Navigate to the project directory and compile:
+1. **Navigate to the project directory and compile:**
 
 ```bash
 cd libft && make && make bonus
 ```
-3. Include the header file and compile your project with `libft.a`:
+3. **Include the header file and compile your project with `libft.a`:**
 
 ```c
 #include "/path/to/libft.h"
